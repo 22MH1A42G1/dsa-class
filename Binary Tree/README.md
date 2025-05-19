@@ -219,4 +219,95 @@ For every node, the **height difference** between left and right subtrees is at 
 
 ---
 
-Let me know if you'd like a **PDF version**, a **diagram**, or want to dive into **binary search trees**, **tree traversals**, or **implementations in code**.
+
+### ✅ **Build Tree (Level Order)**
+
+* A binary tree can be built from a string using **level order traversal**, where each node's value is followed by its left and right child (or `"N"` for null).
+
+* For example:
+  `"10 20 30 N 40 N N"` means:
+
+  ```
+         10
+        /  \
+      20    30
+        \
+         40
+  ```
+
+* Process:
+
+  * First value becomes the **root**.
+  * Insert left and right children using a queue.
+  * If you see `"N"`, it means the corresponding child is `NULL`.
+
+---
+
+### ✅ **Inorder Traversal (Left → Root → Right)**
+
+* Visit left subtree
+
+* Visit root node
+
+* Visit right subtree
+
+* Example:
+
+  ```
+        1
+       / \
+      2   3
+     / \
+    4   5
+  ```
+
+  Inorder: **4 2 5 1 3**
+
+---
+
+### ✅ **Preorder Traversal (Root → Left → Right)**
+
+* Visit root node
+
+* Visit left subtree
+
+* Visit right subtree
+
+* Example:
+
+  ```
+        1
+       / \
+      2   3
+     / \
+    4   5
+  ```
+
+  Preorder: **1 2 4 5 3**
+
+---
+
+### ✅ **Postorder Traversal (Left → Right → Root)**
+
+* Visit left subtree
+
+* Visit right subtree
+
+* Visit root node
+
+* Example:
+
+  ```
+        1
+       / \
+      2   3
+     / \
+    4   5
+  ```
+
+  Postorder: **4 5 2 3 1**
+
+---
+
+If you'd like, I can provide diagrams or animations to visualize these traversals.
+
