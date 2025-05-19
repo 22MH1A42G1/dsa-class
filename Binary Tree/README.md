@@ -309,5 +309,62 @@ For every node, the **height difference** between left and right subtrees is at 
 
 ---
 
-If you'd like, I can provide diagrams or animations to visualize these traversals.
+To calculate the **left subtree height** and **right subtree height** of a binary tree using **DFS (Depth-First Search)**, you typically use **recursive traversal**.
+
+Here's the step-by-step concept
+
+---
+
+### ✅ **What is Height of a Tree/Subtree?**
+
+* **Height** = number of **edges** on the longest path from a node down to a leaf.
+* Alternatively, if counting **nodes**, height = number of nodes on the longest path minus 1.
+* Base case: If the node is `NULL`, height is `-1` (or `0` if counting nodes).
+
+---
+
+### ✅ **Steps to Calculate Left and Right Subtree Height Using DFS:**
+
+1. **Start from the root node.**
+2. Use a recursive DFS function to:
+
+   * Traverse left child recursively → this gives **left subtree height**.
+   * Traverse right child recursively → this gives **right subtree height**.
+3. For each subtree:
+
+   * Height = `1 + max(left subtree height, right subtree height)`
+4. To get:
+
+   * **Left subtree height** → call DFS on `root->left`
+   * **Right subtree height** → call DFS on `root->right`
+
+---
+
+### 📌 **Example Tree:**
+
+```
+        10
+       /  \
+     20    30
+       \
+        40
+```
+
+* DFS on `root->left (20)`:
+
+  * Left: NULL → height = -1
+  * Right → 40 → height = 0
+  * So, height = `1 + max(-1, 0)` = 1
+* DFS on `root->right (30)`:
+
+  * No children → height = 0
+
+✅ Final:
+
+* Left Subtree Height = **1**
+* Right Subtree Height = **0**
+
+---
+
+
 
