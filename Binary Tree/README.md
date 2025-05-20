@@ -467,6 +467,59 @@ Because we go deep before exploring siblings, and **LIFO** (last in → first ou
 
 ---
 
-Would you like a Python code snippet to show BFS traversal level by level with depth tracking?
+## ✅ **Diameter of a Binary Tree** 
+
+---
+
+#### 📌 **Definition:**
+
+The **diameter** (or width) of a binary tree is the **length of the longest path between any two nodes** in the tree.
+This path **may or may not pass through the root**.
+
+* The **length** is measured in terms of **number of edges**, not nodes.
+* So, if the longest path has 4 nodes, the diameter is 3.
+
+---
+
+### 🔍 **Key Formula (DFS Approach):**
+
+For any node:
+
+```
+diameter = max(diameter, leftHeight + rightHeight)
+```
+
+We compute the height of left and right subtrees for each node recursively and update the diameter.
+
+
+---
+
+### 🧠 **Example Input**
+
+```
+1 2 3 4 5 N N
+```
+
+```
+         1
+       /   \
+     2      3
+   /  \
+  4    5
+```
+
+### ✅ **Output**
+
+```
+Diameter of Binary Tree: 3
+```
+
+🧮 Explanation:
+
+* Longest path is: `4 → 2 → 5` or `4 → 2 → 1 → 3` (both have 3 edges)
+* So, Diameter = 3
+
+---
+
 
 
