@@ -522,4 +522,90 @@ Diameter of Binary Tree: 3
 ---
 
 
+[1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/22MH1A42G1/LeetcodeProblems/tree/main/1218-lowest-common-ancestor-of-deepest-leaves)
+Your implementation of the **"Lowest Common Ancestor of Deepest Leaves"** problem is **correct and efficient**! Here's a breakdown of your code with clear documentation and explanation for better understanding:
+
+---
+
+## ✅ **Code with Explanation**
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+from typing import Optional
+
+class Solution:
+    def lcaDeepestLeaves(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        # Helper function returns a tuple: (depth, LCA node)
+        def helper(node):
+            if not node:
+                # Base case: empty node has depth 0 and no LCA
+                return (0, None)
+
+            # Recurse on left and right subtrees
+            l_depth, l_lca = helper(node.left)
+            r_depth, r_lca = helper(node.right)
+
+            if l_depth == r_depth:
+                # If both subtrees have the same depth, this node is the LCA
+                return (l_depth + 1, node)
+            elif l_depth > r_depth:
+                # If left subtree is deeper, return its LCA
+                return (l_depth + 1, l_lca)
+            else:
+                # If right subtree is deeper, return its LCA
+                return (r_depth + 1, r_lca)
+
+        # Only return the LCA node
+        return helper(root)[1]
+```
+
+---
+
+## 🧠 **How It Works**
+
+* **Depth-first search (DFS)** is used to explore the tree.
+* The recursive `helper` function returns two things:
+
+  1. **Depth** of the deepest leaf in the current subtree.
+  2. **LCA** of the deepest leaves in that subtree.
+* At each node:
+
+  * If both left and right subtrees have the same depth, this node becomes the LCA.
+  * Otherwise, the deeper subtree's LCA is propagated upwards.
+
+---
+
+## ⏱️ Time and Space Complexity
+
+* **Time Complexity:** `O(n)` — Every node is visited once.
+* **Space Complexity:** `O(h)` — Due to recursion stack, where `h` is the height of the tree.
+
+---
+
+## 🧪 Example Dry Run
+
+Tree:
+
+```
+       1
+      / \
+     2   3
+    /   / \
+   4   5   6
+  /
+ 7
+```
+
+* Deepest leaf is `7` (depth 4)
+* LCA of deepest leaves is node `7`
+
+Your function correctly returns `7`.
+
+
+
 
